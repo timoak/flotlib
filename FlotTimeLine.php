@@ -12,7 +12,6 @@ class FlotTimeLine extends FlotLine
 	
 	protected function drawPlot()
 	{
-
 		return '
 		var options = {
 				yaxes: [{min: 0}, {position: "right"}],
@@ -20,7 +19,7 @@ class FlotTimeLine extends FlotLine
 					mode: "time",
 					timeformat: "'.$this->settings['x']['timeformat'].'",
 					monthNames: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-					minTickSize: [1, "month"]
+					minTickSize:'.(empty($this->settings['x']['minTickSize'])? ' [1, "month"] ': $this->settings['x']['minTickSize']) .'
 				},
 				grid: { hoverable: true, clickable: true },
                 series: {
